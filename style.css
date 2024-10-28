@@ -1,8 +1,11 @@
+*{
+  box-sizing: border-box;
+}
 :root {
   /* Color Variables */
-  --primary-color: rgba(255, 255, 255, 0.87);
-  --text-color: black !important;
+  --text-color: #181818 !important;
   --white-color: white !important;
+  --project-color: #BDB7AA;
   --main-width: 1440px;
   /* Font Variables */
   --font-family-base: 'TT Firs Neue', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -21,15 +24,47 @@
   --h2-line-height: 130%;
   --h2-letter-spacing: -1.12px;
   --h2-text-transform: uppercase;
+  --small-title-size: 13px;
+  --small-title-line-height: 16px;
+  --small-title-weight: 500;
+  --small-title-transform: uppercase;
+  --project-info-size: 28px;
+  --project-info-line-height: 130%;
+  --project-info-weight: 500;
+  --project-info-transform: uppercase;
+  --title-size: 70px;
+  --title-line-height: 100%;
+  --title-weight: 500;
+  --title-transform: uppercase;
+  --page-description-size: 32px;
+  --page-description-line-height: 130%;
+  --page-description-weight: 400;
+  --section-title-size: 57px;
+  --section-title-line-height: 100%;
+  --section-title-weight: 500;
+  --section-title-transform: uppercase;
+  --image-text-size: 32px;
+  --image-text-line-height: 130%;
+  --image-text-weight: 500;
+  --image-text-transform: uppercase;
+  --table-text-size: 13px;
+  --table-text-weight: 500;
+  --table-text-transform: uppercase;
+  --button-font-size: 16px;
+  --main-button-round: 60px;
+  --main-button-height: 47px;
+  --button-height: 20px;
+  --button-spacing: 0.52px;
+  --button-padding: 10px;
   --navbar-height: 70px;
+  --button-round: 20px;
   --navbar-padding: 20px 40px;
   --logo-width: 183px;
-
+  --border-color-black: rgba(24, 24, 24, 0.15);
+  --border-color-white: rgba(255, 255, 255, 0.15);
+  --image-paddings: 24px;
   /* Misc Variables */
   --line-height-base: 1.5;
-}
-*{
-  box-sizing: border-box;
 }
 body {
   width: 100%;
@@ -48,122 +83,32 @@ body {
   flex-direction: column;
   align-items: center;
 }
-
-.t-width{
-  max-width: 100vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+div{
+  font-family: var(--font-family-base);
 }
-a {
-  font-weight: var(--font-weight-bold);
+a{
   text-decoration: none;
-  color: unset !important;
-  /* color: var(--text-color); */
+  text-transform: uppercase;
 }
 .SO_Main{
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
   max-width: 1440px;
   align-items: center;
+  padding: 0 40px 0;
 }
-.O_Navbar {
+.O_Navbar{
+  position: fixed;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  color: var(--text-color);
   width: 100%;
+  color: var(--text-color);
   height: var(--navbar-height);
   padding: var(--navbar-padding);
-  .W_Logo{
-    width: 183px;
-    height: 22px;
-    filter: invert(1);
-    img{
-      width: 100%;
-      height: 100%;
-    }
-  }
-
-}
-.U_MobileReverse{
-  display: none;
-}
-.W_Info{
-  display: flex;
-  flex-direction: column;
-  .A_SmallTitle {
-    padding: 24px 0 24px 0;
-  }
-}
-.A_Angle{
-  height: 70px;
-  width: 19px;
-}
-.O_Sale{
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  padding: 40px;
-  .A_Title{
-    color: var(--text-color);
-  }
-}
-.O_Distinctives{
-  display: flex;
-  flex-direction: column;
-  gap: 60px;
-  padding: 40px;
-  width: 100%;
-}
-.M_Card{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-end;
-  padding: 40px;
-  width: 440px;
-  min-width: 440px;
-  height: 580px;
-  min-height: 580px;
-  background-color: black;
-  &:is(.U_Parking){
-    background-image: url(/public/Parking.jpg);
-  }
-  &:is(.U_Entrence){
-    background-image: url(/public/Entrence.jpg);
-  }
-  &:is(.U_Architecture){
-    background-image: url(/public/Architecture.jpg);
-  }
-  &:is(.U_Mesonin){
-    background-image: url(/public/Mesonin.jpg);
-  }
-  &:is(.U_Warming){
-    background-image: url(/public/Warming.jpg);
-  }
-  &:is(.U_Docs){
-    background-image: url(/public/Docs.jpg);
-  }
-  &:is(.U_Powers){
-    background-image: url(/public/Powers.jpg);
-  }
-  &:is(.U_Sport){
-    background-image: url(/public/Sport.jpg);
-  }
-  .A_BodyText{
-    color: #ffffff;
-  }
-}
-.O_OpeningPage{
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: fit-content;
-  padding: 0 40px 40px 40px;
-  gap: 20px;
 }
 .O_Form{
   width: 100%;
@@ -172,33 +117,6 @@ a {
   justify-content: space-between;
   padding: 180px;
 }
-.O_Map{
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  gap: 34px;
-}
-.O_Footer{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  height: 460px;
-  background-color: #181818;
-}
-.O_Company{
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  padding: 40px 40px;
-}
-.O_ParametrFullWidth{
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  min-width: var(--main-width);
-}
 .W_FormPart{
   display: flex;
   flex-direction: column;
@@ -206,99 +124,54 @@ a {
   height: fit-content;
   gap: 60px;
 }
-.W_BlackBackground{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  padding: 0;
-  width: 100%;
-  background-color: #181818;
-}
-.W_ParametrBG{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 48px;
-  width: fit-content;
-  padding: 10px 40px;
-  background-color: #181818;
-  img{
-    width: 320px;
-    height: 42px;
-  }
-}
-.A_ParametrText{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  height: 240px;
-  font-size: var(--h2-font-size);
-  font-weight: var(--h2-font-weight);
-  line-height: var(--h2-line-height);
-  color: #ffffff;
-  padding: 40px;
-  background-color: #181818;
-}
-.A_Map1024{
-  display: none;
-}
-.W_Fields{
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  align-items: flex-end
-}
-.W_TextWithAngle{
-  display: flex;
-  flex-direction: row;
-}
-.A_Field{
-  width: 100%;
-  background-color: #181818;
-  &:first-of-type{
-    height: 310px;
-  }
-  &:last-of-type{
-    height: 240px;
-  }
-}
-.W_ProjectInfo{
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  padding: 40px;
-}
-.W_FooterContainer{
+.O_OpeningPage{
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  width: 100%;
+}
+.O_SelectorFilters{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
   height: 100%;
-  padding: var(--main-padding);
-  min-width: var(--main-width);
-  max-width: var(--main-width);
+  max-width: 1440px;
+}
+.O_Map{
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+  padding: 40px 0 40px;
+}
+.O_Sale{
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.O_Distinctives{
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  width: 100%;
+  padding: 40px 0 40px;
+}
+.W_Info{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 .W_Gap{
   display: flex;
+  gap: 34px;
   flex-direction: column;
-  gap: 20px;
 }
-.W_ProjectGetInfo{
+.W_Row{
   display: flex;
-  flex-direction: column;
-  width: 100%;
-  gap: 40px;
+  flex-direction: row;
 }
-.W_ProjectDescription{
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-.W_TableWithTitle{
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  width: 100%;
+.W_FormCheckBoxInfo{
+  font-size: 11px;
+  line-height: 12px;
+  text-transform: uppercase;
 }
 .W_Tables{
   display: flex;
@@ -307,420 +180,11 @@ a {
   gap: 60px;
   justify-content: space-between;
 }
-.W_Table{
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  .A_TablePoint:last-child{
-    border-bottom: 0;
-  }
-  &:is(.U_Fixed){
-    width: 680px;
-  }
-}
 .W_FormCheckBoxField{
   display: flex;
   flex-direction: row;
   gap: 20px;
   align-items: center;
-}
-.W_FormCheckBoxInfo{
-  font-size: 11px;
-  line-height: 12px;
-  color: var(--text-color);
-}
-.M_ProjectInfoItem{
-  display: flex;
-  flex-direction: column;
-  height: fit-content;
-  gap: 20px;
-  width: 100%;
-}
-.W_NavbarLinks{
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  gap: 38px;
-  width: fit-content;
-}
-.W_WithoutSmallTitle{
-  padding: 40px 0 0 0;
-  border-top: 1px solid rgba(24, 24, 24, 0.15);
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-.W_Logo {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: var(--logo-width);
-  height: 100%;
-}
-.W_Row{
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  max-width: 100vw;
-  justify-content: space-between;
-  &:is(.U_Center){
-    align-items: center;
-  }  
-  &:is(.U_Gap5){
-    width: fit-content;
-    justify-content: flex-start;
-    gap: 5px;
-  }  
-  &:is(.U_Gap2){
-    width: fit-content;
-    justify-content: flex-start;
-    gap: 2px;
-  }  
-  &:is(.U_NoGap){
-    width: fit-content;
-    justify-content: flex-start;
-    gap: 0px;
-  }  
-  &:is(.U_AlignBottom){
-    align-items: flex-end;
-  }  
-}
-.W_DescriptionAndButton{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-  padding: 20px 0 20px 0
-}
-.W_ProjectInfoAndDescription{
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-}
-.W_VerticalStack{
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  width: 100%;
-  .A_RowText{
-    padding: 0;
-    display: flex;
-    color: var(--text-color);
-    font-weight: 500;
-    border-bottom: 1px solid rgba(24, 24, 24, 0.15);
-    letter-spacing: 0.56px;
-    font-size: 14px;
-    height: 100px;
-    line-height: 16px;
-    align-items: center;
-  }
-  &:is(.U_NoGap){
-    gap: 0;
-  }
-}
-.W_TableButton{
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: fit-content;
-}
-.A_Counter{
-  font-size: 44px;
-  line-height: 130%;
-  font-weight: 400;
-  &:is(.U_Black){
-    color: #181818 !important;
-  }
-  &:is(.U_Thin){
-    font-weight: 100;
-  }
-}
-.A_Arrow{
-  width: 40px;
-  aspect-ratio: 1/1;
-  border: 1px solid #181818;
-  border-radius: 100px;
-  height: 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  img{
-    width: 100%;
-    height: 100%;
-  }
-}
-.A_Black{
-  max-width: 100vw;
-  width: 100%;
-  height: fit-content;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  background-color: #181818;
-}
-.A_FooterItem{
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  .A_SmallTitle{
-    color: #ffffff;
-  }
-  &:is(.U_MobileReverse){
-    display: none;
-  }  
-  &:is(.U_First){
-    gap: 7px;
-    width: 320px;
-  }
-  &:is(.U_Second){
-    gap: 40px;
-    width: 360px;
-  }
-  &:is(.U_Third){
-    width: 0;
-  }
-}
-.A_PlusButton{
-  width: 20px;
-  height: 20px;
-  background-color: #ffffff;
-  border-radius: 100px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.A_Description{
-  font-size: 32px;
-  color: #181818;
-}
-.A_3Dplan{
-  width: 100%;
-  height: 756px;
-  background-image: url(/public/Plan.jpg);
-  background-size: cover;
-}
-.A_SmallText{
-  font-size: 16px;
-  line-height: 16px;
-  color: var(--text-color);
-}
-.A_Subtitle{
-  font-weight: 500;
-  font-size: 28px;
-  line-height: 30px;
-  color: var(--text-color);
-}
-.A_FormTextInput{
-  all: unset;
-  width: 100%;
-  padding: 20px 0 20px 0;
-  color: var(--text-color);
-  border-bottom: 1px solid rgba(24, 24, 24, 0.15);
-  font-size: 14px;
-  line-height: 16px;
-  font-weight: 500;
-  letter-spacing: 0.56px;
-  &::placeholder{
-    color: var(--text-color);
-  }
-  &:is(.U_LastItem){
-    border-bottom: none;
-  }
-}
-.A_Button{
-  cursor: pointer;
-  background-color: #181818;
-  color: var(--white-color) !important;
-  width: fit-content;
-  height: 47px;
-  display: flex;
-  flex-direction: row;
-  padding: 18px;
-  gap: 9px;
-  align-items: center;
-  border-radius: 60px;
-  text-transform: uppercase;
-  &:is(.U_Icon) {
-    padding-right: 10px;
-    img{
-      height: 29px;
-      width: 29px;
-      aspect-ratio: 1/1;
-    }
-  }
-  &:is(.U_Secondary) {
-    background-color: white;
-    color: var(--text-color) !important;
-    border: 1px solid #181818;
-    height: 20px;
-    font-size: 13px;
-    padding: 0 10px 0;
-    line-height: 16px;
-    font-weight: 500;
-  }
-  &:is(.U_Small){
-    font-size: 13px;
-    line-height: 16px;
-    padding: 10px;
-    height: 20px;
-  }
-}
-.A_TablePoint{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-  padding: 40px 0 40px 0;
-  border-bottom: 1px solid rgba(24, 24, 24, 0.15);
-  &:is(.U_LastItem){
-    border-bottom: none;
-  }
-}
-.A_TableContent{
-  font-size: 13px;
-  line-height: 16px;
-  font-weight: 500;
-  width: fit-content;
-  color: black;
-  &:is(.U_First){
-    width: 70px;
-    min-width: 70px;
-  }
-  &:is(.U_Second){
-    width: 230px;
-    min-width: 230px;
-  }
-  &:is(.U_Third){
-    width: 227px;
-    min-width: 227px;
-  }
-  &:is(.U_Fourth){
-    width: 243px;
-    min-width: 243px;
-  }
-  &:is(.U_Fifth){
-    width: 100%;
-    text-align: end;
-  }
-
-}
-.A_TableRow{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 100%;
-  gap: 10px;
-  border-top: 1px solid rgba(24, 24, 24, 0.15);
-  padding: 16px 0 16px
-}
-.A_FormCheckBox{
-  width: 20px;
-  height: 20px;
-  border: 1px solid #181818;
-  cursor: pointer;
-}
-.A_SecondaryButton{
-  background-color: #ffffff;
-  width: fit-content;
-  padding: 0 10px;
-  color: #181818 !important;
-  border-radius: 20px;
-  font-weight: 500;
-}
-.A_SmallTitle{
-  font-size: 13px;
-  font-weight: 500;
-  line-height: 16px;
-  color: #181818;
-  &:is(.U_Uppercase){
-    text-transform: uppercase;
-  }
-}
-.A_Points{
-  font-size: 28px;
-  font-weight: 500;
-  line-height: 30px;
-  color: #181818;
-}
-.A_NavbarItem {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  height: 100%;
-  width: fit-content;
-  font-size: var(--font-size-small);
-  text-transform: uppercase;
-  position: relative;
-  .Q_Underline{
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 1px;
-    background-color: #181818;
-  }
-}
-.A_RowText{
-  width: 100%;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-  font-size: 13px;
-  line-height: 16px;
-  padding: 40px 0;
-  &:is(.U_LastItem){
-    border-bottom: none;
-  }
-}
-.A_BodyText{
-  font-size: 16px;
-  line-height: 20px;
-  color: var(--text-color);
-}
-.M_ImageWithText{
-  display: flex;
-  align-items: flex-end;
-  background-image: url(/public/M_ImageWithText1.jpg);
-  background-repeat:no-repeat;
-  background-position: bottom;
-  background-size: cover;
-  width: 100%;
-  height: 100%;
-  padding: 24px;
-  font-size: 32px;
-  font-weight: 500;
-  line-height: 130%;
-  text-transform: uppercase;
-  &:is(.U_FixedWidth){
-    min-width: 67%;
-  }
-  &:is(.U_Areas){
-    font-size: 24px;
-    line-height: 130%;
-    background-image: url(/public/Areas.jpg);
-  }
-  &:is(.U_Arial){
-    font-size: 24px;
-    line-height: 130%;
-    background-image: url(/public/Aerial.jpg);
-  }
-  &:is(.U_LightIndustrial){
-    background-image: url(/public/LightIndustrial.jpg);
-  }
-  &:is(.U_InsideLI){
-    background-image: url(/public/InsideLI.jpg);
-  }
-  &:is(.U_FixedWidth){
-    min-width: 67%;
-  }
-}
-.W_TableColumns{
-  display: flex;
-  flex-direction: column;
-  width: 100%;
 }
 .M_FormSubmit{
   display: flex;
@@ -728,52 +192,49 @@ a {
   justify-content: space-between;
   width: 100%;
 }
-.O_SelectorFilters{
+.A_FormCheckBox{
+  width: 20px;
+  height: 20px;
+  border: 1px solid #181818;
+  cursor: pointer;
+}
+.A_TablePoint{
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  height: 97px;
   width: 100%;
-  max-width: var(--main-width);
+  padding: 40px 0 40px 0;
+  border-bottom: 1px solid rgba(24, 24, 24, 0.15);
 }
-.O_Advantages{
+.A_FormTextInput {
+  all: unset;
+  width: 100%;
+  padding: 20px 0 20px 0;
+  color: var(--text-color);
+  border-bottom: 1px solid rgba(24, 24, 24, 0.15);
+  font-size: var(--table-text-size);
+  line-height: 16px;
+  font-weight: var(--table-text-weight);
+  text-transform: var(--table-text-transform);
+  letter-spacing: 0.56px;
+}
+.A_FormTextInput::placeholder{
+  color: var(--text-color);
+}
+.A_TableContent{
+  text-transform: uppercase;
+}
+.W_TableWithTitle{
   display: flex;
   flex-direction: column;
-  gap: 60px;
+  gap: 40px;
   width: 100%;
-  overflow: hidden;
-  .W_Row:first-child{
-    width: 100%;
-    max-width: calc(1440px + (100% - 1440px) / 2); /* Max-width based on content width and dynamic padding */
-    padding-left: calc(calc((100% - 1440px) / 2) + 40px);
-  }
-  .W_Row:last-child{
-    max-width: none;
-    position: relative;
-    transition: all 1s ease-in-out;
-    overflow: hidden;
 }
-}
-
-.A_Map{
+.W_Table{
   width: 100%;
-  height: 100%; 
-  background-position: center;
-  background-image: url(/public/map.png);
-  img{
-    width: 100%;
-    height: 100%;
-  }
-}
-.U_Padding{
-  padding: 40px;
-  &:is(.U_Vertical){padding: 40px 0 40px 0;}
-  &:is(.U_Horizontal){padding: 0 40px 0 40px;}
-}
-.W_Images{
   display: flex;
-  flex-direction: row;
-  gap: 10px;
-  width: 100%;
-  height: 400px;
+  flex-direction: column;
 }
 .W_TableAndImages{
   display: flex;
@@ -782,565 +243,265 @@ a {
   width: 100%;
   height: 100%;
 }
+.W_ProjectGetInfo{
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+}
+.W_NavbarLinks{
+ display: flex;
+ flex-direction: row;
+ gap: 38px; 
+}
+.W_BlackBackground{
+  margin: 40px 0 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  height: 760px;
+  background-color: var(--text-color);
+}
+.W_ProjectInfo{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.W_WithoutSmallTitle{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 40px 0 20px;
+  border-top: 1px solid var(--border-color-black);
+}
+.W_DescriptionAndButton{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-content: center;
+ justify-content: space-between;
+  padding: 20px 0 20px;
+}
+.W_Images{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 400px;
+  gap: 10px;
+}
+.W_ImageStack{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+  width: 100%;
+}
+.W_AddresAndTableItems{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 485px;
+  min-height: 485px;
+}
+.W_TableColumns{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.M_InfoBlock{
+  display: flex;
+  flex-direction: column;
+  width: 755px;
+  height: 100%;
+  gap: 40px;
+  padding: 40px;
+}
 .W_TableImages{
   display: flex;
   flex-direction: column;
   gap: 40px;
   height: 100%;
-  .M_ImageWithText{
-    height: 424px;
-  }
-
 }
-.A_SectionTitle{
-  font-size: 57px;
-  line-height: 55px;
-  font-weight: 500;
-  &:is(.U_Uppercase){
-    text-transform: uppercase;
-  }
-  &:is(.U_Black){
-    color: var(--text-color) !important;
-  }
-}
-.M_InfoBlock{
+.M_ImageWithText{
   display: flex;
-  flex-direction: column;
-  background-color: #181818;
-  min-width: 600px;
-  max-width: 600px;
-  padding: 40px;
-  gap: 40px;
+  height: 100%;
+  align-items: flex-end;
+  width: 100%;
+  align-content: flex-end;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+  padding: var(--image-paddings);  
+  font-size: var(--image-text-size);
+  font-weight: var(--image-text-weight);
+  color: var(--white-color);
+  line-height: var(--image-text-line-height);
+  text-transform: var(--image-text-transform);
 }
-.W_AdresAndTableItems{
+.A_HeaderLogo{
+  width: 183px;
+  max-width: 183px;
+  height: 24px;
+  max-height: 24px;
+}
+.A_BodyText{
+  font-size: 16px;
+  line-height: 130%;
+}
+.A_NavbarItem{
+  font-size: 13px;
+  font-weight: var(--font-weight-bold);
   display: flex;
-  flex-direction: column;
-  gap: 20px;
+  align-items: center;
+  line-height: 16px;
+  color: var(--text-color);
+  position: relative;
 }
-.W_ImageStack{
+.A_PageTitle{
+  font-size: var(--title-size);
+  font-weight: var(--title-weight);
+  line-height: var(--title-line-height);
+  text-transform: var(--title-transform);
+  color: var(--text-color);
+}
+.A_Description{
+  font-size: var(--page-description-size);
+  line-height: var(--page-description-line-height);
+  font-weight: var(--page-description-weight);
+  color: var(--text-color);
+}
+.A_Map{
   width: 100%;
   height: 100%;
+  background-image: url(https://i.ibb.co/85czpFL/map.png);
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+}
+.A_SectionTitle{
+  font-size: var(--section-title-size);
+  font-weight: var(--section-title-weight);
+  line-height: var(--section-title-line-height);
+  text-transform: var(--section-title-transform);
+  color: var(--text-color);
+}
+.A_MainButton{
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  flex-direction: row;
+  align-items: center;
+  gap: 9px;
+  font-size: var(--button-font-size);
+  width: fit-content;
+  height: var(--main-button-height);
+  padding: var(--button-padding);
+  padding: 18px 10px 18px 18px;
+  color: var(--white-color);
+  background-color: var(--text-color);
+  border-radius: var(--main-button-round);
 }
-.U_ProjectItemFixedWidth{
-  min-width: 479px;
+.A_Button{
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  height: var(--button-height);
+  letter-spacing: var(--button-spacing);
+  padding: var(--button-padding);
+  background-color: var(--text-color);
+  border-radius: var(--button-round);
+  font-weight: var(--small-title-weight);
+  text-transform: var(--small-title-transform);
+  color: var(--white-color);
 }
-.U_Uppercase{
+.A_ProjectInfo{
+  font-size: var(--project-info-size);
+  font-weight: var(--project-info-weight);
+  letter-spacing: var(--project-info-line-height);
+  text-transform: var(--project-info-transform);
+}
+.A_RowText{
+  display: flex;
+  flex-direction: row;
+  padding: 40px 0 40px 0;
+  height: 100px;
+  font-size: var(--small-title-size);
+  font-weight: var(--small-title-weight);
+  line-height: var(--small-title-line-height);
+  text-transform: var(--small-title-transform);
+  color: var(--white-color);
+  border-bottom: 1px solid var(--border-color-white);
+}
+.A_SmallTitle{
+  font-size: var(--small-title-size);
+  font-weight: var(--small-title-weight);
+  line-height: var(--small-title-line-height);
+  text-transform: var(--small-title-transform);
+  color: var(--text-color);
+}
+.A_Subtitle{
+  font-size: 28px;
+  line-height: 130%;
   text-transform: uppercase;
-}
-.U_ProjectColor{
-  color: #BDB7AA !important;
+  font-weight: 500;
 }
 .U_White{
-  color: #ffffff;
+  color: var(--white-color);
 }
-.U_TopMargin{
-  margin-top: 34px;
+.U_WhiteBackground{
+  color: var(--text-color);
+  background-color: var(--white-color);
 }
-.U_MobileView{
+.U_ProjectColor{
+  color: var(--project-color);
+}
+.U_MobileShow{
   display: none;
 }
-.U_MobileRow{
-  max-width: 100vw;
-  width: 100vw;
+.U_LastItem{
+  border-bottom: 0;
 }
-@media all and (max-width: 1439px) {
-  :root {
-    --main-width: 1024px;
-    --page-title: 500 56px/130%;
-    --h1: 500 38px/130%;
-    --h1-font-size: 38px;
-    --h1-font-weight: 500;
-    --h1-line-height: 100%;
-    --h1-letter-spacing: -1.12px;
-    --h1-text-transform: uppercase;
-    --h2-font-size: 22px;
-    --h2-font-weight: 500;
-    --h2-line-height: 100%;
-    --h2-letter-spacing: -1.12px;
-    --h2-text-transform: uppercase;
-    --body-font-size: 14px;
-    --body-font-weight: 400;
-    --body-line-height: 100%;
-    --body-letter-spacing: -0.14px;
-  }  
-  .SO_Main{
-    max-width: var(--main-width);
-  }
-  .A_ParametrText{
-    height: fit-content;
-    font-size: 22px;
-  }
-  .A_Field{
-    width: 100%;
-    background-color: #181818;
-    &:first-of-type{
-      height: 194px;
-    }
-    &:last-of-type{
-      height: 124px;
-    }
-  }  
-  .W_Images{
-    flex-direction: column;
-    height: fit-content;
-    .M_ImageWithText {
-      height: 290px;
-    }
-  }
-  .W_ImageStack{
-    flex-direction: row;
-    gap: 10px;
-    height: 290px;
-    .M_ImageWithText {
-      height: 100%;
-    }
-  }
-  .W_TableImages{
-    flex-direction: row;
-    gap: 10px;
-  }
-  .A_SectionTitle{
-    font-size: var(--h1-font-size);
-    font-weight: var(--h1-font-weight);
-    line-height: var(--h1-line-height);
-    letter-spacing: var(--h1-letter-spacing);
-    text-transform: var(--h1-text-transform);
-  }
-  .A_Map1024{
-    display: block;
-    background-image: url(public/map.png);
-    width: 100%;
-    height: 463px;
-  }
-  .A_CardImage{
-    height: 530px;
-    width: 100%;
-    background-size: cover;
-    background-position: bottom;
-    &:is(.U_Parking){
-      background-image: url(/public/Parking.jpg);
-    }
-    &:is(.U_Entrence){
-      background-image: url(/public/Entrence.jpg);
-    }
-    &:is(.U_Architecture){
-      background-image: url(/public/Architecture.jpg);
-    }
-    &:is(.U_Mesonin){
-      background-image: url(/public/Mesonin.jpg);
-    }
-    &:is(.U_Warming){
-      background-image: url(/public/Warming.jpg);
-    }
-    &:is(.U_Docs){
-      background-image: url(/public/Docs.jpg);
-    }
-    &:is(.U_Powers){
-      background-image: url(/public/Powers.jpg);
-    }
-    &:is(.U_Sport){
-      background-image: url(/public/Sport.jpg);
-    }  
-  }
-  .W_CardText{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    height: 120px;
-  }
-  .W_MobileCards{
-    display: flex;
-    flex-direction: row;
-    width: fit-content;
-    height: fit-content;
-    .M_CardWithText{
-      min-width: 100vw;
-    }
-  }
-  .h2{
-    color: #181818;
-    font-size: var(--h2-font-size);
-    font-weight: var(--h2-font-weight);
-    line-height: var(--h2-line-height);
-    letter-spacing: var(--h2-letter-spacing);
-    text-transform: var(--h2-text-transform);
-  }
-  .A_BodyText{
-    font-size: var(--body-font-size);
-    font-weight: var(--body-font-weight);
-    line-height: var(--body-line-height);
-    letter-spacing: var(--body-letter-spacing);
-  }
-  .A_TableContent{
-    font-size: var(--body-font-size);
-    font-weight: var(--body-font-weight);
-    line-height: var(--body-line-height);
-    letter-spacing: var(--body-letter-spacing);
-  }
-  .A_TableContent{
-    font-size: 13px;
-    line-height: 16px;
-    font-weight: 500;
-    width: fit-content;
-    color: black;
-    &:is(.U_First){
-      width: 70px;
-      min-width: 70px;
-    }
-    &:is(.U_Second){
-      width: 114px;
-      min-width: 114px;
-    }
-    &:is(.U_Third){
-      width: 134px;
-      min-width: 134px;
-    }
-    &:is(.U_Fourth){
-      width: 243px;
-      min-width: 243px;
-    }
-    &:is(.U_Fifth){
-      width: 100%;
-      text-align: end;
-    }
-  
-  }  
-  .W_Tables{
-    flex-direction: column;
-  }
-  .O_SelectorFilters{
-    flex-direction: column;
-  }  
-  .W_TableAndImages{
-    width: 100%;
-    max-width: 100%;
-    min-width: 100%;
-  }
-  .W_Table{
-    width: 100%;
-    max-width: 100%;
-    min-width: 100%;
-  }
-  .W_Table > *:last-child {
-    border-bottom: 0;
-  }
-  .W_TableWithTitle{
-    gap: 0px;
-  }
-  .O_Advantages{
-    gap: 40px;
-    .W_Row:first-child{
-      width: 100%;
-      max-width: calc(1024px + (100% - 1024px) / 2); /* Max-width based on content width and dynamic padding */
-      padding-left: calc(calc((100% - 1024px) / 2) + 40px);
-    }
-    .W_Row:last-child{
-      max-width: none;
-      position: relative;
-      transition: all 1s ease-in-out;
-      overflow: hidden;
-    }
-  }  
-  .M_InfoBlock{
-    max-width: none;
-    width: 100%;
-  }
-  .A_Map{
-    display: none;
-    height: 463px;
-  }
-  .A_Subtitle{
-    font-size: var(--h2-font-size);
-    font-weight: var(--h2-font-weight);
-    line-height: var(--h2-line-height);
-    text-transform: var(--h2-text-transform);
-  }
-  .O_Form{
-    padding: 120px;
-  }  
+.U_Gap16{
+  gap: 16px;
 }
-@media all and (max-width: 1024px) {
-  :root {
-  }  
-  .W_FooterContainer{
-    min-width: 0;
-  }
-  .A_Field{
-    display: none;
-  }
-  .O_ParametrFullWidth{
-    min-width: 0;
-  }
+.Q_FirstImage{
+  min-width: 67%;
+  max-width: 67%;
+  background-image: url(https://i.ibb.co/3vf7ZLc/M-Image-With-Text1.jpg);
 }
-@media all and (max-width: 1023px) {
-  .W_FooterContainer{
-    min-width: var(--main-width);
-    max-width: var(--main-width);
-    .W_Row {
-      height: fit-content;
-    }
-    }
-    .O_Footer{
-      height: fit-content;
-    }
+.Q_Areas{
+  background-image: url(https://i.ibb.co/Mhx9CFD/Areas.jpg);
 }
-@media all and (max-width: 1000px) {
-  :root {
-    --h1-font-size: 38px;
-    --h1-font-weight: 500;
-    --h1-line-height: 100%;
-    --h1-letter-spacing: -1.12px;
-    --h1-text-transform: uppercase;
-    --h2-font-size: 24px;
-    --h2-font-weight: 400;
-    --h2-line-height: 100%;
-    --h2-letter-spacing: -1.12px;
-    --h2-text-transform: uppercase;
-    --body-font-size: 16px;
-    --body-font-weight: 400;
-    --body-line-height: 130%;
-    --body-letter-spacing: -0.14px;
-  }  
-  .A_SectionTitle{
-    max-width: 100vw;
-  }
-  .A_Map1024{
-    display: none;
-  }
-  .W_TextWithAngle{
-    .W_ParametrBG{
-      gap: 12px;
-      padding-left: 24px;
-      img{
-        height: 42px;
-      }
-    }
-    img{
-      height: 118px;
-    }
-  }
-  .M_ImageWithText{
-    font-size: 28px;
-    font-weight: 500;
-    line-height: 130%;
-    text-transform: uppercase;
-    &:is(.U_FixedWidth){
-      min-width: 67%;
-    }
-  }  
-  .U_MobileView{
-    display: flex;
-  }
-  .M_CardWithText{
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-  }
-  .M_ProjectInfoItem {
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-    .U_ProjectItemFixedWidth{
-      width: 100%;
-      max-width: 100%;
-    }
-  }
-  .W_ParametrBG{
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-  }
-  .A_Map{
-    display: block;
-    height: 530px;
-  }
-  .W_TableImages{
-    flex-direction: column;
-  }
-  .A_ParametrText {
-    align-items: flex-start;
-    height: 355px;
-    padding: 24px;
-  }
-  .A_TableRow {
-    max-height: 97px;
-    height: 97px;
-  }
-  .U_Padding{
-    padding: 24px;
-    &:is(.U_Vertical){padding: 48px 0 48px 0;}
-    &:is(.U_Horizontal){padding: 0 24px 0 24px;}
-  }  
-  .O_OpeningPage{
-    padding: 48px 24px;
-  }
-  .W_Gap {
-    width: 100%;
-    .W_Row{
-      gap: 36px;
-      width: 100%;
-      flex-direction: column;
-    }
-  }
-  .W_ProjectInfoAndDescription{
-    flex-direction: column;
-    gap: 36px;
-    width: 100%;
-  }
-  .A_Points{
-    font-size: var(--h2-font-size);
-    font-weight: var(--h2-font-weight);
-    line-height: var(--h2-line-height);
-    letter-spacing: var(--h2-letter-spacing);
-  }
-  .O_Footer{
-    align-items: flex-start;
-    padding: 40px;
-  }
-  .W_ProjectInfo{
-    flex-direction: column;
-    gap: 48px;
-    padding: 48px 24px; 
-    max-width: 100vw;
-  }
-  .O_Distinctives{  
-    padding: 48px 24px; 
-  } 
-  .M_InfoBlock{
-    width: 100%;
-    max-width: 100vw;
-    min-width: 0;
-    padding: 48px 24px;
-  }
-  .W_MainTable{
-    width: 160vw;
-    .A_TableRow{
-      .U_MobileHide{
-        display: block;
-      }
-    }
-  }
-  .W_TableForPhoneScroll{
-    height: fit-content;
-    width: 100%;
-    overflow: scroll;
-  }
-  .O_Sale{
-    padding: 48px 24px;
-  }
-  .O_Footer {
-    padding: 48px 24px;
-  }
-  .O_OpeningPage{
-    max-width: 100vw;
-    min-width: 100vw;
-    width: 100%;
-    padding: 0 24px 48px 24px;
-  }
-  .M_FormSubmit{
-    flex-direction: column;
-    gap: 60px;
-  }
-  .O_Company{
-    flex-direction: column;
-    padding: 48px 24px;
-    gap: 10px;
-  }
-  .A_Description{
-    font-size: 32px;
-    line-height: 130%;
-  }
-  .W_Info{
-    display: flex;
-    flex-direction: column;
-    .A_SmallTitle {
-      padding: 24px 0 24px 0;
-    }
-  }
-  .W_WithoutSmallTitle{
-    padding: 24px 0 24px 0;
-    display: flex;
-    flex-direction: column;
-    border-top: 1px solid rgba(24, 24, 24, 0.15);
-    gap: 60px;
-  }
-  .W_DescriptionAndButton{
-    flex-direction: column;
-    gap: 24px;
-    padding: 0;
-  }
-  .W_TableAndImages{
-    max-width: 100vw;
-  }
-  .O_Distinctives{
-    max-width: 100vw;
-  }
-  .O_Sale{
-    max-width: 100vw;
-  }
-  .O_Form{
-    flex-direction: column;
-    padding: 48px 24px;
-    gap: 90px;
-  }
-  .O_Navbar{
-    max-width: 100vw;
-    min-width: 100vw;
-    width: 100%;
-    padding: 0 24px 0;
-  }
-  .U_MobileRow{
-    position: relative;
-    max-width: 100vw !important;
-    width: 100vw;
-  }  
-  .W_Row:last-child(){
-    background-color: red;
-  }
-  .W_FooterContainer{
-    display: flex;
-    flex-direction: column;
-    gap: 60px;
-    min-width: 0;
-    min-width: auto;
-    max-width: auto;
-    padding: 0;
-    .A_FooterItem {
-      &:is(.U_MobileReverse){
-        display: flex;
-      }      
-      &:is(.U_MobileHide){
-        display: none;
-      }  
-      .A_SmallTitle {
-        &:is(.U_ProjectColor){
-          color: #ffffff !important;
-        }  
-      }
-      .W_Row{
-      }
-    }
-    .W_FooterContainer{
-      &:is(.U_MobileReverse){
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-      }
-    }
-    .W_Row{
-      gap: 60px;
-      height: fit-content;
-      align-items: flex-start;
-      flex-direction: column;
-      .A_FooterItem{
-        width: fit-content;
-      }
-    }
-  }
-  .U_MobileHide{
-    display: none;
-  }
+.Q_Arial{
+  background-image: url(https://i.ibb.co/Mhx9CFD/Areas.jpg);
+}
+.Q_LightIndustrial{
+  background-image: url(https://i.ibb.co/wgSSXHk/Light-Industrial.jpg);
+  height: 424px;
+}
+.Q_InsideLI{
+  background-image: url(https://i.ibb.co/G32C9gG/InsideLI.jpg);
+  height: 424px;
+}
+.Q_Areas{
+  background-image: url(https://i.ibb.co/Mhx9CFD/Areas.jpg);
+}
+.Q_ButtonText{
+  width: fit-content;
+  max-width: fit-content;
+}
+.Q_Underline{
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: var(--text-color);
+  bottom: 0;
+}
+.Q_Image{
+  width: 100%;
+  height: 100%;
+  filter: invert(1);
+}
+.Q_ButtonIcon{
+  width: 29px;
+  height: 29px;
 }
